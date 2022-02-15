@@ -42,14 +42,12 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_incidence_int1>-6])}
-for (val in k)
-{print(data$time_incidence_int1[data$ID==val])}
+#for (val in k) {print(data$time_incidence_int1[data$ID==val])}
 data_int1_inc_extra<-data_int1_inc
 for (val in k)
 {data_int1_inc_extra<-rbind(data_int1_inc_extra,data[data$ID==val,])}
 data_int1_inc_extra<-unique(data_int1_inc_extra)
 data_int1_inc<-data_int1_inc_extra
-
 
 data_int1_inc$Intervention<-data_int1_inc$Sum_Intervention1
 data_int1_inc$Intervention<- as.character(data_int1_inc$Intervention)
@@ -75,14 +73,13 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_incidence_int2>-6])}
-for (val in k)
-{print(data$time_incidence_int2[data$ID==val])}
+#for (val in k)
+#{print(data$time_incidence_int2[data$ID==val])}
 data_int2_inc_extra<-data_int2_inc
 for (val in k)
 {data_int2_inc_extra<-rbind(data_int2_inc_extra,data[data$ID==val,])}
 data_int2_inc_extra<-unique(data_int2_inc_extra)
 data_int2_inc<-data_int2_inc_extra
-
 
 data_int2_inc$Intervention<-data_int2_inc$Sum_Intervention2
 data_int2_inc$Intervention<- as.character(data_int2_inc$Intervention)
@@ -94,6 +91,7 @@ data_int2_inc$study_number_new<-data_int2_inc$study_number + 1*166
 data_int2_inc$time_incidence<-data_int2_inc$time_incidence_int2
 data_int2_inc$transmission_falc<-data_int2_inc$trans_falc_int2
 data_int2_inc$transmission_viv<-data_int2_inc$trans_viv_int2
+
 
 ##########
 #third intervention: this code is to find more baseline data points but only up until 6 months before intervention
@@ -107,8 +105,8 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_incidence_int3>-6])}
-for (val in k)
-{print(data$time_incidence_int3[data$ID==val])}
+#for (val in k)
+#{print(data$time_incidence_int3[data$ID==val])}
 data_int3_inc_extra<-data_int3_inc
 for (val in k)
 {data_int3_inc_extra<-rbind(data_int3_inc_extra,data[data$ID==val,])}
@@ -127,6 +125,7 @@ data_int3_inc$time_incidence<-data_int3_inc$time_incidence_int3
 data_int3_inc$transmission_falc<-data_int3_inc$trans_falc_int3
 data_int3_inc$transmission_viv<-data_int3_inc$trans_viv_int3
 
+
 ##########
 #fourth intervention: this code is to find more baseline data points but only up until 6 months before intervention
 s<-unique(data_int4_inc$study_number)
@@ -139,8 +138,8 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_incidence_int4>-6])}
-for (val in k)
-{print(data$time_incidence_int4[data$ID==val])}
+#for (val in k)
+#{print(data$time_incidence_int4[data$ID==val])}
 data_int4_inc_extra<-data_int4_inc
 for (val in k)
 {data_int4_inc_extra<-rbind(data_int4_inc_extra,data[data$ID==val,])}
@@ -302,8 +301,8 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_prevalence_int1>-6])}
-for (val in k)
-{print(data$time_prevalence_int1[data$ID==val])}
+#for (val in k)
+#{print(data$time_prevalence_int1[data$ID==val])}
 
 data_int1_prev_extra<-data_int1_prev
 for (val in k)
@@ -335,16 +334,14 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_prevalence_int2>-6])}
-for (val in k)
-{print(data$time_prevalence_int2[data$ID==val])}
+#for (val in k)
+#{print(data$time_prevalence_int2[data$ID==val])}
 
 data_int2_prev_extra<-data_int2_prev
 for (val in k)
 {data_int2_prev_extra<-rbind(data_int2_prev_extra,data[data$ID==val,])}
 data_int2_prev_extra<-unique(data_int2_prev_extra)
 data_int2_prev<-data_int2_prev_extra
-
-
 
 data_int2_prev$Intervention<-data_int2_prev$Sum_Intervention2
 data_int2_prev$Intervention<- as.character(data_int2_prev$Intervention)
@@ -356,6 +353,7 @@ data_int2_prev$study_number_new<-data_int2_prev$study_number + 1*182
 data_int2_prev$time_prevalence<-data_int2_prev$time_prevalence_int2
 data_int2_prev$transmission_falc<-data_int2_prev$trans_falc_int2
 data_int2_prev$transmission_viv<-data_int2_prev$trans_viv_int2
+
 
 #######
 #third intervention: this code is to find more baseline data points but only up until 6 months before intervention
@@ -369,8 +367,8 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_prevalence_int3>-6])}
-for (val in k)
-{print(data$time_prevalence_int3[data$ID==val])}
+#for (val in k)
+#{print(data$time_prevalence_int3[data$ID==val])}
 
 data_int3_prev_extra<-data_int3_prev
 for (val in k)
@@ -390,6 +388,8 @@ data_int3_prev$time_prevalence<-data_int3_prev$time_prevalence_int3
 data_int3_prev$transmission_falc<-data_int3_prev$trans_falc_int3
 data_int3_prev$transmission_viv<-data_int3_prev$trans_viv_int3
 
+
+
 #######
 #fourth intervention: this code is to find more baseline data points but only up until 6 months before intervention
 s<-unique(data_int4_prev$study_number)
@@ -402,8 +402,8 @@ for (val in w)
 k<-c() 
 for (val in g)
 {k<-c(k,data$ID[data$ID==val&data$time_prevalence_int4>-6])}
-for (val in k)
-{print(data$time_prevalence_int4[data$ID==val])}
+#for (val in k)
+#{print(data$time_prevalence_int4[data$ID==val])}
 
 data_int4_prev_extra<-data_int4_prev
 for (val in k)
@@ -569,8 +569,6 @@ data_new_prev$transmission_study<-paste(data_new_prev$transmission_falc,data_new
 data_new_prev$transmission_study<-as.factor(data_new_prev$transmission_study)
 
 
-
-
 #exclude studies that are not included
 #LOHA master study number 51: the one where there is LLIN and IRS pretty close together
 data_new_inc$ID[data_new_inc$study_number_new==149]
@@ -602,7 +600,7 @@ remove(v)
 
 first_row_study<-data_new_inc[!duplicated(data_new_inc$study_number_new),]
 data_new_inc_times<-as.numeric(first_row_study$implementation_end-first_row_study$implementation_start)/(365.25/12)
-data_new_inc_times
+#data_new_inc_times
 histo_inc<-hist(data_new_inc_times,breaks=seq(0,40,by=1))
 summary(data_new_inc_times)
 sum(histo_inc$density[1])

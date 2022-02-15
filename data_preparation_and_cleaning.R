@@ -2,7 +2,7 @@
 ##script for data cleaning and preparation
 ####################
 
-##recodeds variables 
+##recodes variables 
 ##adds variables such as time between data collection and intervention, dot size for the plots, converts incidence rates and prevalence rates
 ##into actual case numbers/number of people infected
 ##codes 'shorter_time' which is a data frame that shows all studies with two interventions within 6 months
@@ -75,9 +75,10 @@ data$incidence_diagnostics<- as.factor(data$incidence_diagnostics)
 
 #recoding mode_control
 data$mode_control[data$mode_control== 'vector and drug'] <- 'drug and vector'
-droplevels(x= data$mode_control)
+data$mode_control<-droplevels(data$mode_control)
 data$mode_control<- as.character(data$mode_control)
 data$mode_control<- as.factor(data$mode_control)
+
 
 #recoding of seasonality with a cut off at 0.6
 data$seasonality[data$seasonality== 0.2] <- 'low'
@@ -135,6 +136,7 @@ data$season_survey_prevalence<-as.factor(data$season_survey_prevalence)
 
 data$season_survey_prevalence <- factor(data$season_survey_prevalence, levels = c("dry", "wet", "both", "missing"))
 
+
 #recoding diagnostic tool
 data$incidence_diagnostics<-as.character(data$incidence_diagnostics)
 
@@ -148,6 +150,7 @@ data$incidence_diagnostics<-as.factor(data$incidence_diagnostics)
 
 data$incidence_diagnostics<-as.character(data$incidence_diagnostics)
 data$incidence_diagnostics<-as.factor(data$incidence_diagnostics)
+
 
 #recoding of age groups for age_incidence and age_prevalence
 #incidence
@@ -553,7 +556,7 @@ data$sample_size_incidence_number_people<-strtoi(data$sample_size_incidence_numb
 
 #for prevalence
 data$mixed_what_done<-as.factor(data$mixed_what_done)
-levels(data$mixed_what_done)
+#levels(data$mixed_what_done)
 
 x<-c(1:length(data$master_study_number))
 for (val in x)
@@ -585,7 +588,7 @@ for (val in x)
 
 #for incidence
 data$pr_what_done_mixed<-as.factor(data$pr_what_done_mixed)
-levels(data$pr_what_done_mixed)
+#levels(data$pr_what_done_mixed)
 
 x<-c(1:length(data$master_study_number))
 for (val in x)
@@ -753,7 +756,7 @@ for (val in x){
 }
 
 
-#what was done with mixed cases (inicdence), recoding
+#what was done with mixed cases (incidence), recoding
 data$mixed_what_done<-as.character(data$mixed_what_done)
 data$mixed_what_done[data$mixed_what_done=='counted separetly']<-'given separately'
 data$mixed_what_done[data$mixed_what_done=='counted seperately']<-'given separately'
@@ -765,6 +768,7 @@ data$mixed_what_done[data$mixed_what_done=="gives mixed but could also be Pm alt
 data$mixed_what_done[data$mixed_what_done=="mixed are counted towards falciparum"]<-'counted towards falciparum'
 data$mixed_what_done[data$mixed_what_done=="not sure, not seperate, probably counted towards falciparum, but only few mixed cases"]<-'probably counted towards falciparum'
 data$mixed_what_done<-as.factor(data$mixed_what_done)
+
 
 #what was done with mixed cases (prevalence), recoding
 data$pr_what_done_mixed<-as.character(data$pr_what_done_mixed)
@@ -802,4 +806,5 @@ for (val in x)
 }
 
 data$prevalence_diagnostics<-as.factor(data$prevalence_diagnostics)  
+
 
