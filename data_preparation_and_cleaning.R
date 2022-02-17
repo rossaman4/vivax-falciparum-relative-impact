@@ -9,11 +9,6 @@
 ##adds mixed cases to vivax and falciparum
 
 
-#reading data in as a csv file
-data<- read.csv(file = 'database_rel_impact.csv', header=TRUE, sep=";" )
-# correct first column name
-colnames(data)[1]<-c("first_authors")
-
 #converting dates from characters to dates
 data$date_start_incidence<- as.Date(data$date_start_incidence, "%d.%m.%Y")
 data$date_end_incidence<- as.Date(data$date_end_incidence, "%d.%m.%Y")
