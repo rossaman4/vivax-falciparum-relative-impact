@@ -4,13 +4,11 @@
 ###########
 
 
-
 rm(list=ls())
 
 
 # set directory
-setwd("C:/amanda/MSc projects/Melanie Löffel/code and data/files for github repository")
-
+# setwd("...")
 
 
 #read in data from the csv file
