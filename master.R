@@ -22,6 +22,9 @@ source("data_preparation_and_cleaning.R")
 source("reshaping_dataframe.R")
 source("preparation_analysis.R")
 
+# individual series plots
+source('fig3_fig4_individual_series_plot_ITN_incidence.r')
+
 
  
 
