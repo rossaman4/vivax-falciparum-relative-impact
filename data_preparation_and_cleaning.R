@@ -2,6 +2,18 @@
 ##script for data cleaning and preparation
 ####################
 
+
+rm(list=ls())
+
+# set directory
+setwd("C:/amanda/MSc projects/Melanie Loeffel/code and data/files for github repository")
+
+#read in data from the csv file
+data<- read.csv(file = 'database_rel_impact.csv', header=TRUE, sep=";" )
+# correct first column name
+colnames(data)[1]<-c("first_authors")
+
+
 ##recodes variables 
 ##adds variables such as time between data collection and intervention, dot size for the plots, converts incidence rates and prevalence rates
 ##into actual case numbers/number of people infected

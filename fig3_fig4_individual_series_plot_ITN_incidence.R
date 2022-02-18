@@ -3,6 +3,8 @@
 ########
 
 
+source('preparation_analysis.r')
+
 
 #adding row numbers
 data_new_inc$row_number<-seq.int(nrow(data_new_inc))
@@ -83,8 +85,6 @@ for (val in x)
          data=data_new_inc[c(data_new_inc$study_number_new==val) & ((data_new_inc$Intervention[data_new_inc$row_number]=='control' & data_new_inc$Intervention[data_new_inc$row_number+1]=='LLIN 1st dist') | (data_new_inc$Intervention[data_new_inc$row_number]=='LLIN 1st dist' & data_new_inc$Intervention[data_new_inc$row_number_smaller]=='control')),], col=ifelse(Intervention=='control',yes='darkorange2',no='navy'), pch= ifelse(Intervention=='control',yes=ifelse(time_incidence<=24,yes=18,no=5),no=ifelse(time_incidence<=24,yes=16,no=1)),cex=case_numbers_total_cat_inc[data_new_inc$row_number])
   text(55,0.8,fave_cols$letter[fave_cols$number==val],cex=1.2)
   abline(h = 0, col = "gray80") 
-  #points((exp(1)^prediciton)/(1+(exp(1)^prediciton))~time_inc, data=v[c(v$study_number==val),], col='red',pch =1)
-  
   }
   mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
   mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
