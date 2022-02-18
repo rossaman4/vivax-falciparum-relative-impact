@@ -6,7 +6,7 @@
 rm(list=ls())
 
 # set directory
-setwd("C:/amanda/MSc projects/Melanie Loeffel/code and data/files for github repository")
+#setwd("..")
 
 #read in data from the csv file
 data<- read.csv(file = 'database_rel_impact.csv', header=TRUE, sep=";" )
