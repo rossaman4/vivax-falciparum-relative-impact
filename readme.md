@@ -6,8 +6,15 @@ Extracted data and code for the manuscript <i>The relative impact of interventio
 
 The extracted data is in <i>database_rel_impact.csv</i>
 
-The R scripts are organized and documented in <i>master.r</i>
+The R scripts are organized into preparation, figures and analysis.
 
+<ul>
+Preparation: <br>
+data_preparation_and_cleaning.r,  reshaping_dataframe.r,  preparation_analysis.r <br> 
+These are called at the top of each figure or analysis file where they are needed <br>
 
+<br>  
+Figures: <br>
+individual series plots (figures 3-10)
 
-
+</ul>
