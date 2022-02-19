@@ -16,7 +16,11 @@ These are called at the top of each figure or analysis script where they are nee
 <br>  
 Figures: <br>
 individual series plots (figures 3-10) <br>
-spaghetti plots by factor (figures 11-20)
+spaghetti plots by factor (figures 11-20) <br>
+  
+<br>
+Analysis: <br>
+table4_table5_regression.r <br>
 </ul>
 
 
