@@ -91,7 +91,7 @@ for (val in x)
 
 
 
-# -- Figure 11 ---
+# -- Figure 9 ---
 
 
 ##########
@@ -208,7 +208,7 @@ mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side
 
 
 
-# -- Figure 12 ---
+# -- Figure 10 ---
 
 
 
@@ -343,7 +343,7 @@ axis(1,labels=TRUE, las=1)
 
 
 
-# -- Figure 13 ---
+# -- Figure 11 ---
 
 
 #######
