@@ -117,7 +117,8 @@ fave_cols<-cbind.data.frame(colour= c("#9c496c",
                                       "#4eacd7",
                                       "#c67439",
                                       "#ca87cb",
-                                      "#9c496c"), number =c(219,410,411,10,12,13,15,16,55,179,180,167,223),letter=c('a)','b)','c)','d)','e)','f)','g)','h)','i)','j)','k)','l)','m)'))
+                                      "#9c496c"), number =c(219,410,411,10,12,13,15,16,55,179,180,167,223),letter=c('aa)','ab)','ac)','ad)','ae)','af)','ag)','ah)','ai)','aj)','ak)','al)','am)'))
+
 
 
 data_new_inc$time_zero<-data_new_inc$time_incidence
