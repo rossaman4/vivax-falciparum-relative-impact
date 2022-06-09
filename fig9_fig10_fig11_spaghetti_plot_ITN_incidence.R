@@ -400,7 +400,7 @@ tiff("spag_ITN_first_rep_inc.tiff", width = 7, height = 4, units = 'in', res = 7
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(1,2))
-plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_incidence,type='n', data=data_new_inc, main=expression('First time LLIN') , xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''),xlim=c(0:60), ylim=c(0:1), bty='n', las=1)
+plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_incidence,type='n', data=data_new_inc, main=expression('First time LLIN') , xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''),xlim=c(0,60), ylim=c(0:1), bty='n', las=1)
 for (val in x)
 {points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_incidence, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='LLIN 1st dist' & !is.na(data_new_inc$incidence_rate_vivax)&data_new_inc$Intervention[data_new_inc$row_number_smaller]!='control'),], col= fave_cols$colour[fave_cols$number==val], pch= ifelse(time_zero<24,yes=16,no=1), type='b', cex=case_numbers_total_cat_inc[data_new_inc$row_number])
@@ -436,7 +436,7 @@ fave_cols<-cbind.data.frame(colour= c("#8b354d",
 
 x<-c(10,12,13,15,16,55,179,180,219,223,410,411)
 
-plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_incidence,type='n', data=data_new_inc, main=expression('Repeated time ITN') , xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''),xlim=c(0:60), ylim=c(0:1), bty='n', las=1)
+plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_incidence,type='n', data=data_new_inc, main=expression('Repeated time ITN') , xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''),xlim=c(0,60), ylim=c(0:1), bty='n', las=1)
 for (val in x)
 {points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_incidence, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='LLIN later dist' & !is.na(data_new_inc$incidence_rate_vivax)&data_new_inc$Intervention[data_new_inc$row_number_smaller]!='control'),], col= fave_cols$colour[fave_cols$number==val], pch= ifelse(time_zero<24,yes=16,no=1), type='b', cex=case_numbers_total_cat_inc[data_new_inc$row_number])
