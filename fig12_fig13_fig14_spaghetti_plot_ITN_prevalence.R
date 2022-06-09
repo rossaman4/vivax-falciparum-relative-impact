@@ -101,7 +101,7 @@ plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type
    }}}
 
 
-# -- Figure 14 ---
+# -- Figure 12 ---
 
 ##########
 ##relapse pattern
@@ -210,7 +210,7 @@ mtext(text=expression('proportion of patent infections that are  ' *italic(P.viv
 
 
 
-# -- Figure 15 ----
+# -- Figure 13 ----
 
 
 ########
@@ -373,7 +373,7 @@ mtext(text=expression('proportion of patent infections that are ' *italic(P.viva
 
 
 
-# --- Figure 16 ---
+# --- Figure 14 ---
 
 ########
 ##LLIn first and repeated
