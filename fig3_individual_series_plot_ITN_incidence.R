@@ -14,13 +14,14 @@ data_new_inc$row_number_smaller[data_new_inc$row_number_smaller==0]<-1
 first_row_study<-data_new_inc[!duplicated(data_new_inc$study_number_new),]
 first_row_study$row_number<-seq.int(nrow(first_row_study))
 first_row_study$study_area_add<-gsub(".*,","", x=first_row_study$study_area)
-first_row_study$study_area_add<-str_trim(first_row_study$study_area_add)
-first_row_study$study_area_add<-str_replace(first_row_study$study_area_add, "^\\w{1}", toupper)
 first_row_study$study_area<-gsub(",.*","", x=first_row_study$study_area)
 first_row_study$first_authors<-gsub(",.*","", x=first_row_study$first_authors)
 first_row_study$study_area[first_row_study$study_area=='Papua New Guinea']<-'PNG'
 first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_study$first_authors)
+first_row_study$study_area_add<-str_trim(first_row_study$study_area_add)
+first_row_study$study_area_add<-str_replace(first_row_study$study_area_add, "^\\w{1}", toupper)
 first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_study$first_authors, '\n', first_row_study$study_area_add)
+first_row_study$plot_title[first_row_study$plot_title=='Cambodia , Maude \n Kampot and Kampong Speu province']<-'Cambodia , Maude \n Kampot and Kampong Speu'
 
 ########
 #LLIN first time
@@ -68,15 +69,15 @@ x<-c(47,49,50,51,52,113,114,115,112,138,244, 245, 150,230, 231, 232, 233, 234, 2
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
-par(mfrow=c(4,7))
+par(mfrow=c(5,8))
 
 data_new_inc$time_zero<-data_new_inc$time_incidence
 data_new_inc$time_zero[data_new_inc$time_zero<0]<-0
 
 for (val in x)
 {plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_incidence,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1), bty='n', yaxt='n', xaxt='n', xlim=c(0,60), cex.main=0.8) 
-  ifelse((val==231|val==115|val==47|val==238), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
-  ifelse((val==1|val==23|val==57|val==238|val==237|val==145|val==236), axis(1,labels= c('0','','20','','40','','60'), las=1, at=c(0,10,20,30,40,50,60)), axis(1,labels=NA,at=c(0,10,20,30,40,50,60)))
+  ifelse((val==112|val==233|val==47|val==57), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
+  axis(1,labels=NA,at=c(0,10,20,30,40,50,60))
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='LLIN 1st dist' & !is.na(data_new_inc$incidence_rate_vivax)),], col= ifelse(relapse_pattern_white=='frequent',yes='navy',no=ifelse(relapse_pattern_white=='both',yes='navy',no='navy')), pch= ifelse(time_incidence<=24,yes=16,no=1), cex=case_numbers_total_cat_inc[data_new_inc$row_number])
   points((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero, 
@@ -88,18 +89,11 @@ for (val in x)
   text(55,0.8,fave_cols$letter[fave_cols$number==val],cex=1.2)
   abline(h = 0, col = "gray80") 
   }
-  mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
-  mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
-
-plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
-legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=0.9)
+mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
   
-  
-  
- 
-
 ########
-#LLIN repeated time
+#LLIN repeated time- in same plot
 ######
   
 #this gives the series of time points that need to be plotted
@@ -132,14 +126,12 @@ data_new_inc$time_zero[data_new_inc$time_zero<0]<-0
 x<-c(219,410,411,10,12,13,15,16,55,179,180,167,223)
 
 
-par(oma=c(3,3.5,3,0.5))
-par(mar=c(1,1,1.5,1))
-par(mfrow=c(3,5))
 for (val in x)
-{plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1), bty='n', yaxt='n', xaxt='n', xlim=c(0,40), cex.main=0.8) 
-data_new_inc$time_incidence[data_new_inc$time_incidence<0]<-0
-ifelse((val==219|val==13|val==180), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
-  ifelse((val==223|val==167|val==180|val==179|val==55), axis(1,labels=TRUE, las=1), axis(1,labels=NA))
+{plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1), bty='n', yaxt='n', xaxt='n', xlim=c(0,60), cex.main=0.8) 
+  rect(par("usr")[1], par("usr")[3],par("usr")[2], par("usr")[4],col = "grey", border=NA)
+  data_new_inc$time_incidence[data_new_inc$time_incidence<0]<-0
+  ifelse((val==15), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
+  ifelse((val==223|val==167|val==180|val==179|val==55|val==16|val==15|val==13), axis(1,labels=TRUE, las=1), axis(1,labels=NA))
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='LLIN later dist' & !is.na(data_new_inc$incidence_rate_vivax)),], col= ifelse(relapse_pattern_white=='frequent',yes='navy',no=ifelse(relapse_pattern_white=='both',yes='navy',no='navy')), pch= ifelse(time_incidence<=24,yes=16,no=1), cex=case_numbers_total_cat_inc[data_new_inc$row_number])
   points((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero, 
@@ -149,13 +141,12 @@ ifelse((val==219|val==13|val==180), axis(2,labels=TRUE, las=1), axis(2,labels=NA
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val) & ((data_new_inc$Intervention[data_new_inc$row_number]=='control' & data_new_inc$Intervention[data_new_inc$row_number+1]=='LLIN later dist') | (data_new_inc$Intervention[data_new_inc$row_number]=='LLIN later dist' & data_new_inc$Intervention[data_new_inc$row_number_smaller]=='control')),], col=ifelse(relapse_pattern_white=='frequent',yes='navy',no=ifelse(relapse_pattern_white=='both',yes='navy',no='navy')), pch= ifelse(Intervention=='control',yes=18,no=16),cex=case_numbers_total_cat_inc[data_new_inc$row_number])
   text(35,0.8,fave_cols$letter[fave_cols$number==val],cex=1.2)
-  abline(h = 0, col = "gray80") 
-   }
+  abline(h = 0, col = "gray80")
+}
 mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=0.9)
-
 
 
 
