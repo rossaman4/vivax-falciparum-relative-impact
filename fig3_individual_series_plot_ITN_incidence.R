@@ -26,7 +26,7 @@ first_row_study$plot_title[first_row_study$plot_title=='Cambodia , Maude \n Kamp
 ########
 #LLIN first time
 ######
-
+tiff("individual_spag_ITN_inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #this gives the series of time points that need to be plotted
 unique(data_inc_LLIN_first$study_number_new)
 
@@ -149,6 +149,8 @@ mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=
 plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=0.9)
 
+
+dev.off()
 
 
 
