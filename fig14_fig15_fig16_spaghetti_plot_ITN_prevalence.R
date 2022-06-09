@@ -1,5 +1,5 @@
 #####
-#LLIN, prevalence, not_individual
+#ITN, prevalence, not_individual
 ######
 
 
@@ -144,6 +144,7 @@ y<-'missing coverage'
 plot_spaghetti(y)
 
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1.25)
 
 
 ##########
@@ -316,7 +317,6 @@ data_new_prev<-data_new_prev_store[data_new_prev_store$initial_proportion_cat=='
 y<-'high initial proportion'
 plot_spaghetti(y)
 
-#plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 
 ##########
 ##coverage
@@ -363,8 +363,7 @@ axis(1,labels=TRUE, las=1)
 #plot_spaghetti(y)
 #axis(1,labels=TRUE, las=1)
 
-
-#mtext(text=expression('proportion of patent infections that are  ' *italic(P.vivax)* ' \n across time after first LLIN distribution'),side=3, line=1, cex=1, outer=TRUE)
+legend('bottomright',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1.25)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
@@ -520,6 +519,7 @@ axis(1,labels=TRUE, las=1)
 
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+legend('bottomright',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.9)
 
 
 
