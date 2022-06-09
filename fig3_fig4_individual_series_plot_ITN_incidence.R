@@ -4,7 +4,7 @@
 
 
 source('preparation_analysis.r')
-
+library(stringr)
 
 #adding row numbers
 data_new_inc$row_number<-seq.int(nrow(data_new_inc))
@@ -14,6 +14,8 @@ data_new_inc$row_number_smaller[data_new_inc$row_number_smaller==0]<-1
 first_row_study<-data_new_inc[!duplicated(data_new_inc$study_number_new),]
 first_row_study$row_number<-seq.int(nrow(first_row_study))
 first_row_study$study_area_add<-gsub(".*,","", x=first_row_study$study_area)
+first_row_study$study_area_add<-str_trim(first_row_study$study_area_add)
+first_row_study$study_area_add<-str_replace(first_row_study$study_area_add, "^\\w{1}", toupper)
 first_row_study$study_area<-gsub(",.*","", x=first_row_study$study_area)
 first_row_study$first_authors<-gsub(",.*","", x=first_row_study$first_authors)
 first_row_study$study_area[first_row_study$study_area=='Papua New Guinea']<-'PNG'
@@ -89,6 +91,9 @@ for (val in x)
   mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
   mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 
+plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=0.9)
+  
   
   
  
@@ -148,6 +153,8 @@ ifelse((val==219|val==13|val==180), axis(2,labels=TRUE, las=1), axis(2,labels=NA
    }
 mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
+plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=0.9)
 
 
 
