@@ -109,6 +109,7 @@ y<-'high Pf high Pv'
 plot_spaghetti(y)
 
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(2*0.75, 2*1, 2*1.25, 2*1.5, 2*1.75), cex=1.5)
 
 
 
@@ -131,7 +132,6 @@ y<-'high seasonality'
 plot_spaghetti(y)
 axis(1,labels=TRUE, las=1)
 
-#mtext(text=expression('Proportion of prevalence attributed to ' *italic(P.vivax)* ' \n across time after IRS'),side=3, line=1, cex=1, outer=TRUE)
 mtext(text='time since IRS in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
