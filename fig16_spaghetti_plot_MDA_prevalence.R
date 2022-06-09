@@ -98,7 +98,7 @@ for (val in x)
 ##########
 ##relapse pattern
 #######
-
+tiff("spag_MDA_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -201,6 +201,6 @@ mtext(text='time since MDA in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 
-
+dev.off()
 
 
