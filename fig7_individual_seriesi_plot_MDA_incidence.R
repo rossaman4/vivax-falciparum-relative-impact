@@ -4,6 +4,7 @@
 
 
 source('preparation_analysis.r')
+library(stringr)
 
 
 
@@ -15,12 +16,14 @@ data_new_inc$row_number_smaller[data_new_inc$row_number_smaller==0]<-1
 first_row_study<-data_new_inc[!duplicated(data_new_inc$study_number_new),]
 first_row_study$row_number<-seq.int(nrow(first_row_study))
 first_row_study$study_area_add<-gsub(".*,","", x=first_row_study$study_area)
+first_row_study$study_area_add<-str_trim(first_row_study$study_area_add)
+first_row_study$study_area_add<-str_replace(first_row_study$study_area_add, "^\\w{1}", toupper)
 first_row_study$study_area<-gsub(",.*","", x=first_row_study$study_area)
 first_row_study$first_authors<-gsub(",.*","", x=first_row_study$first_authors)
 first_row_study$study_area[first_row_study$study_area=='Papua New Guinea']<-'PNG'
 first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_study$first_authors)
 first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_study$first_authors, '\n', first_row_study$study_area_add)
-first_row_study$plot_title[first_row_study$plot_title=="Brazil , McGreevy \n  costa Margue + Forte principe de beira + settlement along BR429"]<-"Brazil , McGreevy \n  Costa Margue + Forte + settlement"
+first_row_study$plot_title[first_row_study$plot_title=="Brazil , McGreevy \n Costa Margue + Forte principe de beira + settlement along BR429"]<-"Brazil , McGreevy \n  Costa Margue + Forte + settlement"
 
 
 ########
@@ -110,10 +113,12 @@ for (val in x)
          data=data_new_inc[c(data_new_inc$study_number_new==val) & ((data_new_inc$Intervention[data_new_inc$row_number]=='control' & data_new_inc$Intervention[data_new_inc$row_number+1]=='MDA repeated') | (data_new_inc$Intervention[data_new_inc$row_number]=='MDA repeated' & data_new_inc$Intervention[data_new_inc$row_number_smaller]=='control')),], col=ifelse(relapse_pattern_white=='frequent',yes='darkred',no=ifelse(relapse_pattern_white=='both',yes='darkred',no='darkred')), pch= ifelse(Intervention=='control',yes=ifelse(time_incidence<3,yes=18,no=5),no=ifelse(time_incidence<3,yes=16,no=1)),cex=1.5*case_numbers_total_cat_inc[data_new_inc$row_number])
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val) & ((data_new_inc$Intervention[data_new_inc$row_number]=='control' & data_new_inc$Intervention[data_new_inc$row_number+1]=='MDA repeated') | (data_new_inc$Intervention[data_new_inc$row_number]=='MDA repeated' & data_new_inc$Intervention[data_new_inc$row_number_smaller]=='control')),], col=ifelse(relapse_pattern_white=='frequent',yes='darkred',no=ifelse(relapse_pattern_white=='both',yes='darkred',no='darkred')), pch= ifelse(Intervention=='control',yes=ifelse(time_incidence<3,yes=18,no=5),no=ifelse(time_incidence<3,yes=16,no=1)),cex=1.5*case_numbers_total_cat_inc[data_new_inc$row_number])
-  #points(exp(1)^prediciton/(1+exp(1)^prediciton)~time_inc, data=v[c(v$study_number==val),], col='red',pch =1, cex=1.5)
   
   text(27,0.8,fave_cols$letter[fave_cols$number==val],cex=1.2)
   abline(h = 0, col = "gray80")}
+
+plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.9)
 
 
 
