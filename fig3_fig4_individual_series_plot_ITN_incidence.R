@@ -1,5 +1,5 @@
 #########
-##LLIN, incidence, individual plots
+##ITN, incidence, individual plots
 ########
 
 
