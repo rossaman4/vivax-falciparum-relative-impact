@@ -107,6 +107,7 @@ plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type
 ##relapse pattern
 #######
 
+tiff("spag_ITN_first_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -206,7 +207,7 @@ axis(1,labels=TRUE, las=1)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of patent infections that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
-
+dev.off()
 
 
 
@@ -303,7 +304,8 @@ for (val in x)
 ##########
 ##initial proportion
 #######
-quartz()
+tiff("spag_ITN_rep_prev.tiff", width = 5, height = 5, units = 'in', res = 700, pointsize=8)
+#quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(3,2))
@@ -369,7 +371,7 @@ mtext(text=expression('proportion of patent infections that are ' *italic(P.viva
 
 
 
-
+dev.off()
 
 
 
@@ -442,6 +444,7 @@ for (val in x)
 
 
 #quartz()
+tiff("spag_ITN_first_rep_prev.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(1,2))
@@ -521,7 +524,7 @@ mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 legend('bottomright',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.9)
 
-
+dev.off()
 
 
 
