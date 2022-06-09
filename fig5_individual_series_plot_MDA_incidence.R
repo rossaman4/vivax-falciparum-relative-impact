@@ -62,6 +62,7 @@ data_new_inc$time_zero[data_new_inc$time_zero<0]<-0
 
 x<-c(30,75,102,103,104,105,106,107,108,109,137,311,146)
 
+tiff("individual_spag_MDA_inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -120,6 +121,6 @@ for (val in x)
 plot(case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax)~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.9)
 
-
+dev.off()
 
 
