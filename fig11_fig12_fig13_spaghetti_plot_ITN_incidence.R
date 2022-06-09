@@ -138,6 +138,7 @@ y<-'missing coverage'
 plot_spaghetti(y)
 
 plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('black'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=1.25)
 
 
 ##########
@@ -313,6 +314,7 @@ plot_spaghetti(y)
 #axis(1,labels=TRUE, las=1)
 
 plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('black'), pch=c(16), pt.cex=c(0.75, 1, 1.25, 1.5, 1.75), cex=1.5)
 
 
 
