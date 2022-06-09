@@ -156,6 +156,13 @@ summary(model_LLIN_first)
 ctab1<-fab_function(model_LLIN_first)
 ctab1
 
+##min and max slope
+v<-coef(model_LLIN_first)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 
@@ -180,7 +187,13 @@ summary(model_LLIN_rep)
 ctab1<-fab_function(model_LLIN_rep)
 ctab1
 
-
+##min and max slope
+v<-coef(model_LLIN_rep)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 ######
 #IRS all 
@@ -203,7 +216,13 @@ summary(model_IRS)
 ctab1<-fab_function(model_IRS)
 ctab1
 
-
+##min and max slope
+v<-coef(model_IRS)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 ############
@@ -238,7 +257,13 @@ ctab1<-fab_function(model_MDA_all)
 ctab1
 
 
-
+##min and max slope
+v<-coef(model_MDA_all)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 ###
@@ -284,6 +309,13 @@ model_MDA_all<-glmer(cbind(vivax_new, falciparum_new)~time_zero_new+relevel(seas
 ctab1<-fab_function(model_MDA_all)
 ctab1
 
+##min and max slope
+v<-coef(model_MDA_all)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 
@@ -335,7 +367,13 @@ model_LLIN_all<-glmer(cbind(vivax_new, falciparum_new)~time_zero+relevel(season_
 ctab1<-fab_function(model_LLIN_all)
 ctab1
 
-
+##min and max slope
+v<-coef(model_LLIN_all)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 ############
@@ -355,6 +393,13 @@ summary(model_IRS_all)
 ctab1<-fab_function(model_IRS_all)
 ctab1
 
+##min and max slope
+v<-coef(model_IRS_all)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 ############
@@ -378,7 +423,13 @@ summary(model_MDA_first)
 ctab1<-fab_function(model_MDA_first)
 ctab1
 
-
+##min and max slope
+v<-coef(model_MDA_first)$study_number_new
+names(v) [1]<- 'Intercept'
+v$names <- rownames(v)
+v$number<-gsub(":.*","", x=v$names)
+exp(min(v$time_zero))
+exp(max(v$time_zero))
 
 
 
