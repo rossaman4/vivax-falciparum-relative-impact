@@ -81,7 +81,8 @@ for (val in x)
 ##########
 ##transmission
 #######
-quartz()
+tiff("spag_IRS_prev.tiff", width = 7, height = 3, units = 'in', res = 700, pointsize=8)
+#quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(2,4))
@@ -152,6 +153,6 @@ y<-'high initial proportion'
 plot_spaghetti(y)
 axis(1,labels=TRUE, las=1)
 
-
+dev.off()
 
 
