@@ -722,10 +722,10 @@ data$case_numbers_total_cat_inc<-NA
 x<-c(1:length(data$first_authors))
 for (val in x){
   if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]<200){data$case_numbers_total_cat_inc[val]<-0.75}
-  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>200){data$case_numbers_total_cat_inc[val]<-1.0}
-  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>500){data$case_numbers_total_cat_inc[val]<-1.25}
-  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>1000){data$case_numbers_total_cat_inc[val]<-1.5}
-  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>2000){data$case_numbers_total_cat_inc[val]<-1.75}
+  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>=200){data$case_numbers_total_cat_inc[val]<-1.0}
+  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>=500){data$case_numbers_total_cat_inc[val]<-1.25}
+  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>=1000){data$case_numbers_total_cat_inc[val]<-1.5}
+  if(!is.na(data$case_numbers_total_inc[val])&data$case_numbers_total_inc[val]>=2000){data$case_numbers_total_cat_inc[val]<-1.75}
  }
 
 
@@ -756,10 +756,10 @@ data$case_numbers_total_cat_prev<-NA
 x<-c(1:length(data$first_authors))
 for (val in x){
   if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]<100){data$case_numbers_total_cat_prev[val]<-0.75}
-  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>100){data$case_numbers_total_cat_prev[val]<-1.0}
-  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>200){data$case_numbers_total_cat_prev[val]<-1.25}
-  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>500){data$case_numbers_total_cat_prev[val]<-1.5}
-  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>1000){data$case_numbers_total_cat_prev[val]<-1.75}
+  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>=100){data$case_numbers_total_cat_prev[val]<-1.0}
+  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>=200){data$case_numbers_total_cat_prev[val]<-1.25}
+  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>=500){data$case_numbers_total_cat_prev[val]<-1.5}
+  if(!is.na(data$case_numbers_total_prev[val])&data$case_numbers_total_prev[val]>=1000){data$case_numbers_total_cat_prev[val]<-1.75}
 }
 
 
