@@ -37,6 +37,7 @@ x<-c(43,98)
 data_new_prev$time_zero<-data_new_prev$time_prevalence
 data_new_prev$time_zero[data_new_prev$time_zero<0]<-0
 
+tiff("individual_spag_IRS_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -169,5 +170,5 @@ for (val in x)
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('navy'), pch=c(16), pt.cex=c(2*0.75, 2*1, 2*1.25, 2*1.5, 2*1.75), cex=1.5)
 
-
+dev.off()
 
