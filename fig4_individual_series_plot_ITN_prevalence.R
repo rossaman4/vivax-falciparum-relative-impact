@@ -26,6 +26,8 @@ first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_stud
 ########
 ##LLIN first dist
 #####
+
+tiff("individual_spag_ITN_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #this gives the series of time points that need to be plotted
 unique(data_prev_LLIN_first$study_number_new)
 
@@ -158,6 +160,6 @@ for (val in x)
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.9)
 
-
+dev.off()
 
 
