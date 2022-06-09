@@ -97,6 +97,7 @@ for (val in x)
 ##########
 #relapse pattern
 ##########
+tiff("spag_ITN_first_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -204,6 +205,7 @@ axis(1,labels=TRUE, las=1)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
+dev.off()
 
 
 
@@ -263,8 +265,8 @@ for (val in x)
 ##########
 ##relapse pattern
 #######
-
-quartz()
+tiff("spag_ITN_rep_inc.tiff", width = 7, height = 5, units = 'in', res=700, pointsize=8)
+#quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(3,3))
@@ -340,7 +342,7 @@ plot_spaghetti(y)
 axis(1,labels=TRUE, las=1)
 
 
-
+dev.off()
 
 
 # -- Figure 11 ---
@@ -393,7 +395,7 @@ data_new_inc$row_number_smaller<-data_new_inc$row_number-1
 data_new_inc$row_number_smaller[data_new_inc$row_number_smaller==0]<-1
 
 
-
+tiff("spag_ITN_first_rep_inc.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -449,6 +451,8 @@ for (val in x)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
 mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
+
+dev.off()
 
 
 
