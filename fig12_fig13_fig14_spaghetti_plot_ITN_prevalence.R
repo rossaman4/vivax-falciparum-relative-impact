@@ -409,7 +409,7 @@ plot_spaghetti<-function(y)
 {data_new_prev$row_number<-seq.int(nrow(data_new_prev))
 data_new_prev$row_number_smaller<-data_new_prev$row_number-1
 data_new_prev$row_number_smaller[data_new_prev$row_number_smaller==0]<-1
-plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type='n', data=data_new_prev, main=y, xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''), ylim=c(0:1), bty='n', xlim=c(0,40), xaxt='n', font.main=1, las=1, yaxt='n')
+plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type='n', data=data_new_prev, main=y, xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''), ylim=c(0:1), bty='n', xlim=c(0,50), xaxt='n', font.main=1, las=1, yaxt='n')
 axis(1,labels=NA)
 axis(2,labels=NA)
 for (val in x)
@@ -491,7 +491,7 @@ plot_spaghetti<-function(y)
 {data_new_prev$row_number<-seq.int(nrow(data_new_prev))
 data_new_prev$row_number_smaller<-data_new_prev$row_number-1
 data_new_prev$row_number_smaller[data_new_prev$row_number_smaller==0]<-1
-plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type='n', data=data_new_prev, main=y, xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''), ylim=c(0:1), bty='n', xlim=c(0,60), xaxt='n', font.main=1, las=1, yaxt='n')
+plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type='n', data=data_new_prev, main=y, xlab='Time [months]', ylab=expression('Proportion of cases attributed to ' *italic(P.vivax)* ''), ylim=c(0:1), bty='n', xlim=c(0,50), xaxt='n', font.main=1, las=1, yaxt='n')
 axis(1,labels=NA)
 axis(2,labels=NA)
 for (val in x)
