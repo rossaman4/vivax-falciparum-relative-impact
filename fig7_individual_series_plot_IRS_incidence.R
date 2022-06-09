@@ -46,6 +46,7 @@ data_new_inc$time_zero<-data_new_inc$time_incidence
 data_new_inc$time_zero[data_new_inc$time_zero<0]<-0
 x<-c(60,61,92,141)
 
+tiff("individual_spag_IRS_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -145,5 +146,5 @@ for (val in x)
 
 legend('bottomright',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1)
 
-
+dev.off()
 
