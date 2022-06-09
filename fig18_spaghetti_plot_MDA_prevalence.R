@@ -166,6 +166,7 @@ plot_spaghetti(y)
 axis(1,labels=NA, las=1)
 
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1.3)
 
 
 #######
@@ -180,7 +181,6 @@ axis(1,labels=TRUE, las=1)
 data_new_prev<-data_new_prev_store[data_new_prev_store$initial_proportion_cat=='high',]
 y<-'high initital proportion'
 plot_spaghetti(y)
-#axis(2,labels=TRUE, las=1)
 axis(1,labels=TRUE, las=1)
 
 ##########
