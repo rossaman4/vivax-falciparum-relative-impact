@@ -4,6 +4,7 @@
 
 
 source("preparation_analysis.R")
+library(stringr)
 
 #adding row numbers
 data_new_prev$row_number<-seq.int(nrow(data_new_prev))
@@ -11,6 +12,8 @@ data_new_prev$row_number<-seq.int(nrow(data_new_prev))
 first_row_study<-data_new_prev[!duplicated(data_new_prev$study_number_new),]
 first_row_study$row_number<-seq.int(nrow(first_row_study))
 first_row_study$study_area_add<-gsub(".*,","", x=first_row_study$study_area)
+first_row_study$study_area_add<-str_trim(first_row_study$study_area_add)
+first_row_study$study_area_add<-str_replace(first_row_study$study_area_add, "^\\w{1}", toupper)
 first_row_study$study_area<-gsub(",.*","", x=first_row_study$study_area)
 first_row_study$first_authors<-gsub(",.*","", x=first_row_study$first_authors)
 first_row_study$study_area[first_row_study$study_area=='Papua New Guinea']<-'PNG'
@@ -75,5 +78,8 @@ for (val in x)
    abline(h = 0, col = "gray80")}
 mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 mtext(text='time since MDA in months',side=1, line=2, cex=1, outer=TRUE)
+
+plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
+legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1.3)
 
 
