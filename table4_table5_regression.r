@@ -287,7 +287,7 @@ ctab1
 
 
 
-### --- TABLE 6 - PATENT INFECTIONS ----
+### --- TABLE 5 - PATENT INFECTIONS ----
 
 ########
 ##ITN first and repeated combined 
