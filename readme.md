@@ -17,7 +17,9 @@ These are called at the top of each figure or analysis script where they are nee
 Figures: <br>
 individual series plots (figures 3-8) <br>
 spaghetti plots by factor (figures 9-18) <br>
+(R scripts create tiff files for each graph)  
   
+<br>  
 <br>
 Analysis: <br>
 table4_table5_regression.r <br>
