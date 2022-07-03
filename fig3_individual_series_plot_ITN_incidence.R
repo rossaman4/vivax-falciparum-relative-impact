@@ -2,7 +2,8 @@
 ##ITN, incidence, individual plots
 ########
 
-
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
 source('preparation_analysis.r')
 library(stringr)
 
