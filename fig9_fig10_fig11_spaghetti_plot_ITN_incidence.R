@@ -3,7 +3,10 @@
 ########
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
+
 
 #adding row numbers
 data_new_inc<-data_new_inc[order(data_new_inc$ID),]
@@ -97,7 +100,7 @@ for (val in x)
 ##########
 #relapse pattern
 ##########
-tiff("spag_ITN_first_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig9_spag_ITN_first_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -203,7 +206,7 @@ plot_spaghetti(y)
 axis(1,labels=TRUE, las=1)
 
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
-mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('proportion of cases that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 dev.off()
 
@@ -265,7 +268,7 @@ for (val in x)
 ##########
 ##relapse pattern
 #######
-tiff("spag_ITN_rep_inc.tiff", width = 7, height = 5, units = 'in', res=700, pointsize=8)
+tiff("fig10_spag_ITN_rep_inc.tiff", width = 5.5, height = (5.5*5/7), units = 'in', res=300, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -284,7 +287,7 @@ plot_spaghetti(y)
 plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
-mtext(text=expression('proportion of cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('proportion of cases that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 
 
@@ -395,7 +398,7 @@ data_new_inc$row_number_smaller<-data_new_inc$row_number-1
 data_new_inc$row_number_smaller[data_new_inc$row_number_smaller==0]<-1
 
 
-tiff("spag_ITN_first_rep_inc.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
+tiff("fig11_spag_ITN_first_rep_inc.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))

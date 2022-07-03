@@ -3,8 +3,12 @@
 ########
 
 
-source("preparation_analysis.R")
+
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 library(stringr)
+
 
 
 #adding row numbers
@@ -46,11 +50,12 @@ data_new_inc$time_zero<-data_new_inc$time_incidence
 data_new_inc$time_zero[data_new_inc$time_zero<0]<-0
 x<-c(60,61,92,141)
 
-tiff("individual_spag_IRS_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig7_individual_series_IRS_Inc.tiff", width = 7.5, height = 3, units = 'in', res = 300, pointsize=8)
+
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
-par(mfrow=c(4,4))
+par(mfrow=c(2,8))
 for (val in x)
 {plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1), bty='n', yaxt='n', xaxt='n',xlim= c(0,40), cex.main=0.9) 
    ifelse((val==60), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
@@ -66,7 +71,7 @@ for (val in x)
     text(35,0.8,fave_cols$letter[fave_cols$number==val],cex=1.2)
     abline(h = 0, col = "gray80")
     }
-mtext(text=expression('proportion of clinical cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('proportion of clinical cases that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 mtext(text='time since IRS in months',side=1, line=2, cex=1, outer=TRUE)
 
 
@@ -89,7 +94,7 @@ x<-c(93, 305, 306)
 
 for (val in x)
 {plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1),xlim=c(0,40), bty='n', yaxt='n', xaxt='n', cex.main=0.9) 
-  ifelse((val==93), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
+  ifelse((val==93), axis(2,labels=NA, las=1), axis(2,labels=NA))
   axis(1,labels=NA)
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='IRS repeated time' & !is.na(data_new_inc$incidence_rate_vivax)),], col= ifelse(relapse_pattern_white=='frequent',yes='darkred',no=ifelse(relapse_pattern_white=='both',yes='darkred',no='darkred')), pch= ifelse(time_zero<24,yes=16,no=1), cex=1.5*case_numbers_total_cat_inc[data_new_inc$row_number])
@@ -130,8 +135,8 @@ x<-c(53,62,73,74,116,122,123,134,152)
 
 for (val in x)
 {plot((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero,type='n', data=data_new_inc, main=first_row_study$plot_title[first_row_study$study_number_new==val] , xlab='Time [months]', ylab= 'proportion vivax', ylim=c(0:1),xlim=c(0,40), bty='n', yaxt='n', xaxt='n', cex.main=0.9) 
-  ifelse((val==62|val==122), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
-  ifelse((val==123|val==152|val==134|val==122), axis(1,labels=TRUE, las=1), axis(1,labels=NA))
+   ifelse((val==62), axis(2,labels=TRUE, las=1), axis(2,labels=NA))
+   ifelse((val==123|val==152|val==134|val==122|val==116|val==74|val==73|val==62), axis(1,labels=TRUE, las=1), axis(1,labels=NA))
   points((incidence_rate_vivax/(incidence_rate_falciparum+incidence_rate_vivax))~time_zero, 
          data=data_new_inc[c(data_new_inc$study_number_new==val & data_new_inc$Intervention=='IRS' & !is.na(data_new_inc$incidence_rate_vivax)),], col= ifelse(relapse_pattern_white=='frequent',yes='darkgreen',no=ifelse(relapse_pattern_white=='both',yes='darkgreen',no='darkgreen')), pch= ifelse(time_zero<24,yes=16,no=1), cex=1.5*case_numbers_total_cat_inc[data_new_inc$row_number])
   points((case_numbers_vivax/(case_numbers_falciparum+case_numbers_vivax))~time_zero, 
@@ -144,7 +149,12 @@ for (val in x)
   abline(h = 0, col = "gray80")
   }
 
-legend('bottomright',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1)
+
+legend('bottomright',legend=c('<200 cases', '200-499 cases', '500-999 cases', '1000-1999 cases', '>1999 cases'), col=c('navy'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=0.8)
+
 
 dev.off()
+
+
+
 

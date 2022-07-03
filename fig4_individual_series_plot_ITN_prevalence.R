@@ -30,7 +30,7 @@ first_row_study$plot_title<-paste(first_row_study$study_area, ',',first_row_stud
 ##LLIN first dist
 #####
 
-tiff("individual_spag_ITN_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig4_individual_series_ITN_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #this gives the series of time points that need to be plotted
 unique(data_prev_LLIN_first$study_number_new)
 

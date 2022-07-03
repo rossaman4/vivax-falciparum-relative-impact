@@ -7,6 +7,7 @@ source('reshaping_dataframe.r')
 source('preparation_analysis.r')
 library(stringr)
 
+
 #adding row numbers
 data_new_inc$row_number<-seq.int(nrow(data_new_inc))
 data_new_inc$row_number_smaller<-data_new_inc$row_number-1
@@ -27,7 +28,7 @@ first_row_study$plot_title[first_row_study$plot_title=='Cambodia , Maude \n Kamp
 ########
 #LLIN first time
 ######
-tiff("individual_spag_ITN_inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig3_individual_series_ITN_inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #this gives the series of time points that need to be plotted
 unique(data_inc_LLIN_first$study_number_new)
 

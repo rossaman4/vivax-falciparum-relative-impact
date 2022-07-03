@@ -3,7 +3,9 @@
 ######
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 
 #adding row numbers
 data_new_prev<-data_new_prev[order(data_new_prev$ID),]
@@ -81,7 +83,7 @@ for (val in x)
 ##########
 ##transmission
 #######
-tiff("spag_IRS_prev.tiff", width = 7, height = 3, units = 'in', res = 700, pointsize=8)
+tiff("fig18_spag_IRS_prev.tiff", width = 7, height = 3, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -111,7 +113,6 @@ plot_spaghetti(y)
 
 plot(pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM)~time_zero,type='n', data=data_new_prev, bty='n', xaxt='n', yaxt='n', ylab='', xlab='')
 legend('topleft',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(2*0.75, 2*1, 2*1.25, 2*1.5, 2*1.75), cex=1.5)
-
 
 
 

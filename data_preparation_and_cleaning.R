@@ -1,12 +1,9 @@
-#####################
+###########################################
+## data_preparation_and_cleaning.r
 ##script for data cleaning and preparation
-####################
+###########################################
 
 
-rm(list=ls())
-
-# set directory
-#setwd("..")
 
 #read in data from the csv file
 data<- read.csv(file = 'database_rel_impact.csv', header=TRUE, sep=";" )

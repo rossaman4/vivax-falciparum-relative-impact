@@ -3,7 +3,9 @@
 ##########
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 
 
 #adding row numbers
@@ -147,7 +149,7 @@ for (val in x)
 ##########
 ##coverage
 #######
-tiff("spag_MDA_inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig15_spag_MDA_inc.tiff", width = 7.5, height = (7.5*5/7), units = 'in', res = 300, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -262,8 +264,11 @@ axis(1,labels=TRUE, las=1)
 
 
 mtext(text='time since MDA in months',side=1, line=2, cex=1, outer=TRUE)
-mtext(text=expression('Proportion of clinical cases that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('Proportion of clinical cases that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 
 dev.off()
+
+
+
 

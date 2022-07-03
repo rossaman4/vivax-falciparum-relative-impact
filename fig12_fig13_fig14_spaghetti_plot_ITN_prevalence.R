@@ -3,7 +3,9 @@
 ######
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 
 
 
@@ -107,7 +109,7 @@ plot((pr_numb_vivax_LM/(pr_numb_falciparum_LM+pr_numb_vivax_LM))~time_zero, type
 ##relapse pattern
 #######
 
-tiff("spag_ITN_first_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig12_spag_ITN_first_prev.tiff", width = 7.5, height = (5*7.5/7), units = 'in', res = 300, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -205,7 +207,7 @@ plot_spaghetti(y)
 axis(1,labels=TRUE, las=1)
 
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
-mtext(text=expression('proportion of patent infections that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('proportion of patent infections that were   ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 dev.off()
 
@@ -215,7 +217,7 @@ dev.off()
 
 
 ########
-##LLIn repeated dist
+##LLIN repeated dist
 #####
 
 #get rid of the ones with no cases at all so that the connection works
@@ -304,7 +306,7 @@ for (val in x)
 ##########
 ##initial proportion
 #######
-tiff("spag_ITN_rep_prev.tiff", width = 5, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig13_spag_ITN_rep_prev.tiff", width = 3.5, height = 4.5, units = 'in', res = 300, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
@@ -367,7 +369,7 @@ axis(1,labels=TRUE, las=1)
 
 legend('bottomright',legend=c('<100 cases', '100-199 cases', '200-499 cases', '500-999 cases', '>999 cases'), col=c('black'), pch=c(16), pt.cex=c(1.5*0.75, 1.5*1, 1.5*1.25, 1.5*1.5, 1.5*1.75), cex=1.25)
 mtext(text='time since ITN distribution in months',side=1, line=2, cex=1, outer=TRUE)
-mtext(text=expression('proportion of patent infections that are ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
+mtext(text=expression('proportion of patent infections that are  ' *italic(P.vivax)* ''),side=2, line=2, cex=1, outer=TRUE)
 
 
 
@@ -444,7 +446,7 @@ for (val in x)
 
 
 #quartz()
-tiff("spag_ITN_first_rep_prev.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
+tiff("fig14_spag_ITN_first_rep_prev.tiff", width = 7, height = 4, units = 'in', res = 700, pointsize=8)
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(1,2))

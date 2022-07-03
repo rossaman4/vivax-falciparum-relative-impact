@@ -3,7 +3,9 @@
 ######
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 
 
 #adding row numbers
@@ -98,7 +100,7 @@ for (val in x)
 ##########
 ##relapse pattern
 #######
-tiff("spag_MDA_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig16_spag_MDA_prev.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
 #quartz()
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))

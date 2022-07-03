@@ -8,7 +8,6 @@
 
 
 
-
 data$study_area[data$study_area=='Papua New Guinea, Ilahita area of Maprik district, East Sepik Province']<-'Papua New Guinea, Ilahita area'
 
 

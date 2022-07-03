@@ -2,9 +2,9 @@
 ##statistical analysis
 #######################
 
-source("preparation_analysis.R")
-
-
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 library(lme4)
 library(lmtest)
 

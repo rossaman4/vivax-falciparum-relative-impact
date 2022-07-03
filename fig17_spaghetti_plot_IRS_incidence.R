@@ -3,7 +3,9 @@
 ########
 
 
-source("preparation_analysis.R")
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
+source('preparation_analysis.r')
 
 
 #adding row numbers
@@ -82,7 +84,7 @@ for (val in x)
 ##seasonality
 #######
 #quartz()
-tiff("spag_IRS_Inc.tiff", width = 7, height = 5, units = 'in', res = 700, pointsize=8)
+tiff("fig17_spag_IRS_Inc.tiff", width = 5.5, height = (5.5*5/7), units = 'in', res = 300, pointsize=9)
 par(oma=c(3,3.5,3,0.5))
 par(mar=c(1,1,1.5,1))
 par(mfrow=c(3,3))
