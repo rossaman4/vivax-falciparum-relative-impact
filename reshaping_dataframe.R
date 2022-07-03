@@ -7,8 +7,6 @@
 ##also recodes coverage: cut off 70% for LLIN, 90% for IRS and MDA
 
 
-source('data_preparation_and_cleaning.r')
-
 
 
 data$study_area[data$study_area=='Papua New Guinea, Ilahita area of Maprik district, East Sepik Province']<-'Papua New Guinea, Ilahita area'
