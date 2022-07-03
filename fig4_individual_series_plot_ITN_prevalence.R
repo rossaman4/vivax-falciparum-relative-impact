@@ -4,8 +4,11 @@
 #####
 
 
+source('data_preparation_and_cleaning.r')
+source('reshaping_dataframe.r')
 source('preparation_analysis.r')
 library(stringr)
+
 
 #adding row numbers
 data_new_prev$row_number<-seq.int(nrow(data_new_prev))
